@@ -31,7 +31,7 @@ def both_ends(s):
   if len(s) < 2:
         s=''
   else:
-        s=s[0]+s[1]+s[-2]+s[-1]
+        s=s[0:2]+s[-2:]
   return s
 
 
@@ -47,7 +47,7 @@ def both_ends(s):
 def fix_start(s):
   # +++your code here+++
   ch=s[0]
-  return s.replace(s[0],'*').replace('*',ch,1)
+  return ch+s[1:].replace(ch,'*')
 
 
 # D. MixUp
@@ -59,9 +59,9 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
   # +++your code here+++
-  s1=a[0]+a[1]
-  s2=b[0]+b[1]
-  return (a.replace(a[0]+a[1],s2,1)+' '+b.replace(b[0]+b[1],s1,1))
+  s1=a[0:2]
+  s2=b[0:2]
+  return (a.replace(a[0:2],s2,1)+' '+b.replace(b[0:2],s1,1))
 
 
 # Provided simple test() function used in main() to print
